@@ -22,6 +22,7 @@ public class Assign1
 			System.out.println("You are missing a command line argument, please try again. Program is terminating");
 			return;
 		}
+		
 		CheckArguments(args);
 		int size = Integer.parseInt(args[1]);
 		int[] x = new int [size];
@@ -104,7 +105,7 @@ public class Assign1
 		if (algorithm.equals("Bubble") || algorithm.equals("bubble"))
 		{
 			long startTime = System.nanoTime();
-			BubbleSort(array);
+			array = BubbleSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -114,7 +115,7 @@ public class Assign1
 		else if (algorithm.equals("Insertion") || algorithm.equals("insertion"))
 		{
 			long startTime = System.nanoTime();
-			InsertionSort(array);
+			array = InsertionSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -124,7 +125,7 @@ public class Assign1
 		else if (algorithm.equals("Merge") || algorithm.equals("merge"))
 		{
 			long startTime = System.nanoTime();
-			MergeSort(array);
+			array = MergeSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -134,7 +135,7 @@ public class Assign1
 		if (algorithm.equals("Quick") || algorithm.equals("quick"))
 		{
 			long startTime = System.nanoTime();
-			QuickSort(array,0,array.length-1);
+			array = QuickSort.sorting(array,0,array.length-1);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -142,160 +143,8 @@ public class Assign1
 		
 		}
 	}
-	
-	/**
-	 * Sorts the given array using the Bubble Sort algorithm.
-	 * Adapted from the following webpage:  https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm
-	 * @param array the array to be sorted.
-	 */
-	public static void BubbleSort(int[] array)
-	{
-		 int n = array.length;
-         int temp = 0;
-         for(int i=0; i < n; i++)
-         {
-        	 for(int j=1; j < (n-i); j++)
-        	 {
-        		 if(array[j-1] > array[j])
-        		 {
-        			 temp = array[j-1];
-        			 array[j-1] = array[j];
-                     array[j] = temp;
-        		 }
-        	 }
-         }
-     }
-	
-	/**
-	 * Sorts the given array using the Insertion Sort algorithm.
-	 * Adapted from the following webpage: https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm
-	 * @param array the array to be sorted.
-	 */
-	public static void InsertionSort(int[] array)
-	{
-		for(int i = 1; i < array.length; i++)
-		{
-			int temp = array[i];
-			int j;
-			for(j = (i-1); j>=0 && temp < array[j]; j-- )
-			{
-				array[j+1] = array[j];
-			}
-			array[j+1] = temp;
-		}
-	}
-	
-	/**
-	 * Sorts the given array using the Merge Sort algorithm.
-	 * This method splits the arrays into smaller arrays and make calls to Merge method to put them back together.
-	 * Adapted from the following webpage: https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm
-	 * @param array the array to be sorted.
-	 */
-	public static void MergeSort(int[] array)
-	{
-		
-		if (array.length > 1) 
-		{
-			int mid = array.length/2;
-            int[] leftArray = Arrays.copyOfRange(array, 0, mid);
-            int[] rightArray = Arrays.copyOfRange(array,mid,array.length);
-            MergeSort(leftArray);
-            MergeSort(rightArray);
-            Merge(array,leftArray,rightArray);
-        }
-	}
 
-	/**
-	 * Compares and combines the left and right arrays from the merge sort method, and updates the actual array.
-	 * Adapted from the following webpage: https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm
-	 * @param array the actual array where the final sorted results will be saved.
-	 * @param leftarray the left array from the merge sort method.
-	 * @param rightarray the right array from the merge sort method.
-	 */
-    public static void Merge(int[] array, int[] leftarray, int[] rightarray) 
-    {
-    	int totalElements = leftarray.length + rightarray.length;
-        int counter,leftMark,rightMark;
-        counter = leftMark = rightMark = 0;
-        while ( counter < totalElements) 
-        {
-        	if ((leftMark < leftarray.length) && (rightMark < rightarray.length)) 
-        	{
-        		if (leftarray[leftMark] < rightarray[rightMark]) 
-        		{
-        			array[counter] = leftarray[leftMark];
-                    counter++;
-                    leftMark++;
-                }
-                else 
-                {
-                	array[counter] = rightarray[rightMark];
-                    counter++;
-                    rightMark++;
-                }
-            }
-            else 
-            {
-            	if (leftMark >= leftarray.length) 
-            	{
-                    while (rightMark < rightarray.length) 
-                    {
-                        array[counter] = rightarray[rightMark];
-                        counter++;
-                        rightMark++;
-                    }
-                }
-            	else if (rightMark >= rightarray.length) 
-            	{
-                    while (leftMark < leftarray.length) 
-                    {
-                        array[counter] = leftarray[leftMark];
-                        leftMark++;
-                        counter++;
-                    }
-                }
-            }
-        }
-    }
 
-    /**
-     * Sorts the given array using the quick sort algorithm.
-     * Adapted from the following webpage: https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_algorithm.htm
-     * @param array the array to be sorted.
-     * @param beginning index of the first element of the array.
-     * @param end index of the last element of the array.
-     */
-	public static void QuickSort(int[] array,int beginning, int end)
-	{
-		if (beginning >= end)
-			return;
-		int pivot = end;
-		int left = beginning;
-		for(int i = beginning; i < end; i++)
-		{
-			if (array[i] <= array[pivot] && left != i)
-			{
-				int temp = array[i];
-				array[i] = array[left];
-				array[left] = temp;
-				left++;
-			}
-			else if (array[i] <= array[pivot] && left == i)
-			{
-				left++;
-			}
-			
-		}
-		if (left != pivot)
-		{
-			int temp = array[left];
-			array[left] = array[pivot];
-			array[pivot] = temp;
-		}
-		QuickSort(array, beginning, left-1);
-		QuickSort(array, left+1, pivot);
-		return;
-	}
 	
 	/**
 	 * Creates a string out of the given integer array.
