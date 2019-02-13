@@ -4,43 +4,51 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BubbleSortTest {
 
 	@Test
 	public void generalTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, BubbleSort.bubbleSort(new int[] {3,2,1}));
+		BubbleSort bubbleSort = new BubbleSort();
+		assertArrayEquals(new int[]{1,2,3}, bubbleSort.sorting(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void emptyListTest() throws Exception{
-		assertArrayEquals(new int[]{}, BubbleSort.bubbleSort(new int[] {}));
+		BubbleSort bubbleSort = new BubbleSort();
+		assertArrayEquals(new int[]{}, bubbleSort.sorting(new int[] {}));
 	}
 	
 	@Test
 	public void oneElementListTest() throws Exception{
-		assertArrayEquals(new int[]{1}, BubbleSort.bubbleSort(new int[] {1}));
+		BubbleSort bubbleSort = new BubbleSort();
+		assertArrayEquals(new int[]{1}, bubbleSort.sorting(new int[] {1}));
 	}
 	
 	@Test
 	public void alreadySortedListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, BubbleSort.bubbleSort(new int[] {1,2,3}));
+		BubbleSort bubbleSort = new BubbleSort();
+		assertArrayEquals(new int[]{1,2,3}, bubbleSort.sorting(new int[] {1,2,3}));
 	}
 	
 	@Test
 	public void reverseOrderListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, BubbleSort.bubbleSort(new int[] {3,2,1}));
+		BubbleSort bubbleSort = new BubbleSort();
+		assertArrayEquals(new int[]{1,2,3}, bubbleSort.sorting(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void repeatedElementListTest() throws Exception{
-		assertArrayEquals(new int[]{0,0,1,2,2,3}, BubbleSort.bubbleSort(new int[] {0,1,2,0,2,3}));
+		BubbleSort bubbleSort = new BubbleSort();
+		assertArrayEquals(new int[]{0,0,1,2,2,3}, bubbleSort.sorting(new int[] {0,1,2,0,2,3}));
 	}
 	
 	// Assume a max amount of integer input
 	@Test
 	public void maximumListSizeTest() throws Exception{
+		BubbleSort bubbleSort = new BubbleSort();
 		Random rand = new Random();
 		int[] list = new int[100000000];
 		int min = -100;
@@ -49,7 +57,7 @@ public class BubbleSortTest {
 		{
 			list[i] = rand.nextInt((max-min)+1)+min;
 		}
-		assertArrayEquals(new int[]{}, BubbleSort.bubbleSort(new int[] {}));
+		assertArrayEquals(new int[]{}, bubbleSort.sorting(new int[] {}));
 	}
 	
 	

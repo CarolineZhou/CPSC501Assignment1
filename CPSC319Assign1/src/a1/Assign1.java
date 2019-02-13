@@ -104,8 +104,9 @@ public class Assign1
 	{
 		if (algorithm.equals("Bubble") || algorithm.equals("bubble"))
 		{
+			BubbleSort bubbleSort = new BubbleSort();
 			long startTime = System.nanoTime();
-			array = BubbleSort.bubbleSort(array);
+			array = bubbleSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -114,8 +115,9 @@ public class Assign1
 		
 		else if (algorithm.equals("Insertion") || algorithm.equals("insertion"))
 		{
+			InsertionSort insertionSort = new InsertionSort();
 			long startTime = System.nanoTime();
-			array = InsertionSort.insertionSort(array);
+			array = insertionSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -124,8 +126,9 @@ public class Assign1
 		}
 		else if (algorithm.equals("Merge") || algorithm.equals("merge"))
 		{
+			MergeSort mergeSort = new MergeSort();
 			long startTime = System.nanoTime();
-			array = MergeSort.mergeSort(array);
+			array = mergeSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;
@@ -134,8 +137,9 @@ public class Assign1
 		}
 		if (algorithm.equals("Quick") || algorithm.equals("quick"))
 		{
+			QuickSort quickSort = new QuickSort();
 			long startTime = System.nanoTime();
-			array = QuickSort.quickSort(array,0,array.length-1);
+			array = quickSort.sorting(array);
 			long endTime = System.nanoTime();
 			double totalTime = endTime - startTime;
 			totalTime = totalTime * 0.000000001;

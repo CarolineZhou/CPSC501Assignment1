@@ -10,37 +10,44 @@ public class InsertionSortTest {
 
 	@Test
 	public void generalTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, InsertionSort.insertionSort(new int[] {3,2,1}));
+		InsertionSort insertionSort = new InsertionSort();
+		assertArrayEquals(new int[]{1,2,3}, insertionSort.sorting(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void emptyListTest() throws Exception{
-		assertArrayEquals(new int[]{}, InsertionSort.insertionSort(new int[] {}));
+		InsertionSort insertionSort = new InsertionSort();
+		assertArrayEquals(new int[]{}, insertionSort.sorting(new int[] {}));
 	}
 	
 	@Test
 	public void oneElementListTest() throws Exception{
-		assertArrayEquals(new int[]{1}, InsertionSort.insertionSort(new int[] {1}));
+		InsertionSort insertionSort = new InsertionSort();
+		assertArrayEquals(new int[]{1}, insertionSort.sorting(new int[] {1}));
 	}
 	
 	@Test
 	public void alreadySortedListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, InsertionSort.insertionSort(new int[] {1,2,3}));
+		InsertionSort insertionSort = new InsertionSort();
+		assertArrayEquals(new int[]{1,2,3}, insertionSort.sorting(new int[] {1,2,3}));
 	}
 	
 	@Test
 	public void reverseOrderListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, InsertionSort.insertionSort(new int[] {3,2,1}));
+		InsertionSort insertionSort = new InsertionSort();
+		assertArrayEquals(new int[]{1,2,3}, insertionSort.sorting(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void repeatedElementListTest() throws Exception{
-		assertArrayEquals(new int[]{0,0,1,2,2,3}, InsertionSort.insertionSort(new int[] {0,1,2,0,2,3}));
+		InsertionSort insertionSort = new InsertionSort();
+		assertArrayEquals(new int[]{0,0,1,2,2,3}, insertionSort.sorting(new int[] {0,1,2,0,2,3}));
 	}
 	
 	// Assume a max amount of integer input
 	@Test
 	public void maximumListSizeTest() throws Exception{
+		InsertionSort insertionSort = new InsertionSort();
 		Random rand = new Random();
 		int[] list = new int[100000000];
 		int min = -100;
@@ -49,7 +56,7 @@ public class InsertionSortTest {
 		{
 			list[i] = rand.nextInt((max-min)+1)+min;
 		}
-		assertArrayEquals(new int[]{}, InsertionSort.insertionSort(new int[] {}));
+		assertArrayEquals(new int[]{}, insertionSort.sorting(new int[] {}));
 	}
 	
 }

@@ -1,13 +1,13 @@
 package a1;
 
-public class BubbleSort {
+public class BubbleSort implements SortingAlgorithm{
 
 	/**
 	 * Sorts the given array using the Bubble Sort algorithm.
 	 * Adapted from the following webpage:  https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm
 	 * @param array the array to be sorted.
 	 */
-	public static int[] bubbleSort(int[] array)
+	public int[] sorting(int[] array)
 	{
 		 
 		 int[] sortedArray = array;

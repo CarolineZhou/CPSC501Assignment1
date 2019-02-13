@@ -1,13 +1,13 @@
 package a1;
 
-public class InsertionSort {
+public class InsertionSort implements SortingAlgorithm{
 
 	/**
 	 * Sorts the given array using the Insertion Sort algorithm.
 	 * Adapted from the following webpage: https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm
 	 * @param array the array to be sorted.
 	 */
-	public static int[] insertionSort(int[] array)
+	public int[] sorting(int[] array)
 	{
 		int[] sortedArray = array;
 		for(int i = 1; i < sortedArray.length; i++)

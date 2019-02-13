@@ -1,6 +1,6 @@
 package a1;
 
-public class QuickSort {
+public class QuickSort implements SortingAlgorithm{
 
     /**
      * Sorts the given array using the quick sort algorithm.
@@ -9,7 +9,7 @@ public class QuickSort {
      * @param beginning index of the first element of the array.
      * @param end index of the last element of the array.
      */
-	public static int[] quickSort(int[] array,int beginning, int end)
+	private int[] algorithm(int[] array,int beginning, int end)
 	{
 		int[] sortedArray = array;
 		if (beginning >= end)
@@ -43,8 +43,13 @@ public class QuickSort {
 			sortedArray[left] = sortedArray[pivot];
 			sortedArray[pivot] = temp;
 		}
-		QuickSort.quickSort(sortedArray, beginning, left-1);
-		QuickSort.quickSort(sortedArray, left+1, pivot);
+		this.algorithm(sortedArray, beginning, left-1);
+		this.algorithm(sortedArray, left+1, pivot);
 		return sortedArray;
+	
+	}
+	
+	public int[] sorting(int[] array) {
+		return this.algorithm(array, 0, array.length-1);
 	}
 }

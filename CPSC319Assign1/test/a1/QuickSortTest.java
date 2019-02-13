@@ -10,38 +10,45 @@ public class QuickSortTest {
 
 	@Test
 	public void generalTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, QuickSort.quickSort(new int[] {3,2,1}, 0, 2));
+		QuickSort quickSort = new QuickSort();
+		assertArrayEquals(new int[]{1,2,3}, quickSort.sorting(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void emptyListTest() throws Exception{
-		assertArrayEquals(new int[]{}, QuickSort.quickSort(new int[] {}, 0, -1));
+		QuickSort quickSort = new QuickSort();
+		assertArrayEquals(new int[]{}, quickSort.sorting(new int[] {}));
 	}
 	
 	@Test
 	public void oneElementListTest() throws Exception{
-		System.out.println(QuickSort.quickSort(new int[] {1}, 0, 1));
-		assertArrayEquals(new int[]{1}, QuickSort.quickSort(new int[] {1}, 0, 1));
+		QuickSort quickSort = new QuickSort();
+		System.out.println(quickSort.sorting(new int[] {1}));
+		assertArrayEquals(new int[]{1}, quickSort.sorting(new int[] {1}));
 	}
 	
 	@Test
 	public void alreadySortedListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, QuickSort.quickSort(new int[] {1,2,3}, 0, 2));
+		QuickSort quickSort = new QuickSort();
+		assertArrayEquals(new int[]{1,2,3}, quickSort.sorting(new int[] {1,2,3}));
 	}
 	
 	@Test
 	public void reverseOrderListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, QuickSort.quickSort(new int[] {3,2,1}, 0, 2));
+		QuickSort quickSort = new QuickSort();
+		assertArrayEquals(new int[]{1,2,3}, quickSort.sorting(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void repeatedElementListTest() throws Exception{
-		assertArrayEquals(new int[]{0,0,1,2,2,3}, QuickSort.quickSort(new int[] {0,1,2,0,2,3}, 0, 5));
+		QuickSort quickSort = new QuickSort();
+		assertArrayEquals(new int[]{0,0,1,2,2,3}, quickSort.sorting(new int[] {0,1,2,0,2,3}));
 	}
 	
 	// Assume a max amount of integer input
 	/*@Test
 	public void maximumListSizeTest() throws Exception{
+	QuickSort quickSort = new QuickSort();
 		Random rand = new Random();
 		int[] list = new int[1000000];
 		int min = -100;
@@ -50,7 +57,7 @@ public class QuickSortTest {
 		{
 			list[i] = rand.nextInt((max-min)+1)+min;
 		}
-		assertArrayEquals(InsertionSort.quickSort(list), QuickSort.quickSort(new int[] {}, 0, 1000000-1));
+		assertArrayEquals(InsertionSort.sorting(list), quickSort.sorting(new int[] {}));
 	}*/
 	
 
