@@ -7,7 +7,7 @@ public class BubbleSort {
 	 * Adapted from the following webpage:  https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm
 	 * @param array the array to be sorted.
 	 */
-	public static int[] sorting(int[] array)
+	public static int[] bubbleSort(int[] array)
 	{
 		 
 		 int[] sortedArray = array;

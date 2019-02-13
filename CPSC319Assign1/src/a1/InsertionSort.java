@@ -7,7 +7,7 @@ public class InsertionSort {
 	 * Adapted from the following webpage: https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm
 	 * @param array the array to be sorted.
 	 */
-	public static int[] sorting(int[] array)
+	public static int[] insertionSort(int[] array)
 	{
 		int[] sortedArray = array;
 		for(int i = 1; i < sortedArray.length; i++)

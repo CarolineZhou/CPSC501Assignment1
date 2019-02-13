@@ -10,32 +10,32 @@ public class BubbleSortTest {
 
 	@Test
 	public void generalTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, BubbleSort.sorting(new int[] {3,2,1}));
+		assertArrayEquals(new int[]{1,2,3}, BubbleSort.bubbleSort(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void emptyListTest() throws Exception{
-		assertArrayEquals(new int[]{}, BubbleSort.sorting(new int[] {}));
+		assertArrayEquals(new int[]{}, BubbleSort.bubbleSort(new int[] {}));
 	}
 	
 	@Test
 	public void oneElementListTest() throws Exception{
-		assertArrayEquals(new int[]{1}, BubbleSort.sorting(new int[] {1}));
+		assertArrayEquals(new int[]{1}, BubbleSort.bubbleSort(new int[] {1}));
 	}
 	
 	@Test
 	public void alreadySortedListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, BubbleSort.sorting(new int[] {1,2,3}));
+		assertArrayEquals(new int[]{1,2,3}, BubbleSort.bubbleSort(new int[] {1,2,3}));
 	}
 	
 	@Test
 	public void reverseOrderListTest() throws Exception{
-		assertArrayEquals(new int[]{1,2,3}, BubbleSort.sorting(new int[] {3,2,1}));
+		assertArrayEquals(new int[]{1,2,3}, BubbleSort.bubbleSort(new int[] {3,2,1}));
 	}
 	
 	@Test
 	public void repeatedElementListTest() throws Exception{
-		assertArrayEquals(new int[]{0,0,1,2,2,3}, BubbleSort.sorting(new int[] {0,1,2,0,2,3}));
+		assertArrayEquals(new int[]{0,0,1,2,2,3}, BubbleSort.bubbleSort(new int[] {0,1,2,0,2,3}));
 	}
 	
 	// Assume a max amount of integer input
@@ -49,7 +49,7 @@ public class BubbleSortTest {
 		{
 			list[i] = rand.nextInt((max-min)+1)+min;
 		}
-		assertArrayEquals(new int[]{}, BubbleSort.sorting(new int[] {}));
+		assertArrayEquals(new int[]{}, BubbleSort.bubbleSort(new int[] {}));
 	}
 	
 	

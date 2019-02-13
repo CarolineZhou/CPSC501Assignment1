@@ -9,7 +9,7 @@ public class QuickSort {
      * @param beginning index of the first element of the array.
      * @param end index of the last element of the array.
      */
-	public static int[] sorting(int[] array,int beginning, int end)
+	public static int[] quickSort(int[] array,int beginning, int end)
 	{
 		int[] sortedArray = array;
 		if (beginning >= end)
@@ -43,8 +43,8 @@ public class QuickSort {
 			sortedArray[left] = sortedArray[pivot];
 			sortedArray[pivot] = temp;
 		}
-		QuickSort.sorting(sortedArray, beginning, left-1);
-		QuickSort.sorting(sortedArray, left+1, pivot);
+		QuickSort.quickSort(sortedArray, beginning, left-1);
+		QuickSort.quickSort(sortedArray, left+1, pivot);
 		return sortedArray;
 	}
 }
