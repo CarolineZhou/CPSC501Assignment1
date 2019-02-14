@@ -53,10 +53,6 @@ public class ArrayOperationTest {
 		ArrayOperation array1 = new ArrayOperation(new int[] {});
 		array1.setAlgorithm("Bubble ");
 		assertEquals("bubble",array1.getAlgorithm());
-	}
-	
-	
-	
-	
+	}	
 	
 }
