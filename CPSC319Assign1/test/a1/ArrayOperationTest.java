@@ -19,7 +19,7 @@ public class ArrayOperationTest {
 		assertArrayEquals(a, array1.get());
 	}
 	
-
+	
 	@Test
 	public void getTest() throws Exception{
 		ArrayOperation array1 = new ArrayOperation(new int[] {});
@@ -27,5 +27,36 @@ public class ArrayOperationTest {
 		assertArrayEquals(new int[] {}, array1.get());
 	}
 	
-
+	@Test
+	public void setAlgorithmTest() throws Exception{
+		ArrayOperation array1 = new ArrayOperation(new int[] {});
+		array1.setAlgorithm("BubBle");
+		assertEquals("bubble",array1.getAlgorithm());
+	}
+	
+	@Test
+	public void setAlgorithmEmptyStringTest() throws Exception{
+		ArrayOperation array1 = new ArrayOperation(new int[] {});
+		array1.setAlgorithm("");
+		assertEquals("None Chosen",array1.getAlgorithm());
+	}
+	
+	@Test
+	public void setAlgorithmWrongInputTest() throws Exception{
+		ArrayOperation array1 = new ArrayOperation(new int[] {});
+		array1.setAlgorithm("Ok");
+		assertEquals("None Chosen",array1.getAlgorithm());
+	}
+	
+	@Test
+	public void setAlgorithmInputContainsSpaceTest() throws Exception{
+		ArrayOperation array1 = new ArrayOperation(new int[] {});
+		array1.setAlgorithm("Bubble ");
+		assertEquals("bubble",array1.getAlgorithm());
+	}
+	
+	
+	
+	
+	
 }

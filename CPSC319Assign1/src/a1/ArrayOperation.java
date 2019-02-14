@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class ArrayOperation {
 	private int[] array;
+	private String algorithm = "None Chosen";
 	
 	public ArrayOperation(int[] a) {
 		array = a;
@@ -19,6 +20,7 @@ public class ArrayOperation {
 	public void set(int[] a) {
 		array = a;
 	}
+	
 	/**
 	 * Fills the array according the order specified by the user.
 	 * @param order string type order according to which the array is filled.
@@ -92,10 +94,12 @@ public class ArrayOperation {
 	 * @param algorithm the algorithm which will be used to sort the array.
 	 * @param array the integer array to be sorted.
 	 */
-	public void sortingBasedOnAlg(String algorithm)
+	public void setAlgorithm(String alg)
 	{
-		if (algorithm.equals("Bubble") || algorithm.equals("bubble"))
+		alg = alg.replaceAll("\\s","");
+		if (alg.toLowerCase().equals("bubble"))
 		{
+			algorithm = alg.toLowerCase();
 			BubbleSort bubbleSort = new BubbleSort();
 			long startTime = System.nanoTime();
 			array = bubbleSort.sorting(array);
@@ -105,8 +109,9 @@ public class ArrayOperation {
 			System.out.printf("Total time taken to run the algorithm: %8.4f secs.\n", totalTime);
 		}
 		
-		else if (algorithm.equals("Insertion") || algorithm.equals("insertion"))
+		else if (alg.toLowerCase().equals("insertion"))
 		{
+			algorithm = alg.toLowerCase();
 			InsertionSort insertionSort = new InsertionSort();
 			long startTime = System.nanoTime();
 			array = insertionSort.sorting(array);
@@ -116,8 +121,9 @@ public class ArrayOperation {
 			System.out.printf("Total time taken to run the algorithm: %8.4f secs.\n", totalTime);
 		
 		}
-		else if (algorithm.equals("Merge") || algorithm.equals("merge"))
+		else if (alg.toLowerCase().equals("merge"))
 		{
+			algorithm = alg.toLowerCase();
 			MergeSort mergeSort = new MergeSort();
 			long startTime = System.nanoTime();
 			array = mergeSort.sorting(array);
@@ -127,8 +133,9 @@ public class ArrayOperation {
 			System.out.printf("Total time taken to run the algorithm: %8.4f secs.\n", totalTime);
 		
 		}
-		if (algorithm.equals("Quick") || algorithm.equals("quick"))
+		else if (alg.toLowerCase().equals("quick"))
 		{
+			algorithm = alg.toLowerCase();
 			QuickSort quickSort = new QuickSort();
 			long startTime = System.nanoTime();
 			array = quickSort.sorting(array);
@@ -137,6 +144,13 @@ public class ArrayOperation {
 			totalTime = totalTime * 0.000000001;
 			System.out.printf("Total time taken to run the algorithm: %8.4f secs.\n", totalTime);
 		
-		}
+		}else
+		{
+			algorithm = "None Chosen";
+		}	
+	}
+	
+	public String getAlgorithm() {
+		return algorithm;
 	}
 }

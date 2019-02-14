@@ -26,7 +26,7 @@ public class Assign1
 		int[] x = new int [size];
 		ArrayOperation array1 = new ArrayOperation(x);
 		array1.fillingArray(args[0]);
-		array1.sortingBasedOnAlg(args[2]);
+		array1.setAlgorithm(args[2]);
 		array1.printArrayToFile(args[3]);		
 	}	
 	
